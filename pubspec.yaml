@@ -1,7 +1,7 @@
 name: ticket_material
 description: A ticket view widget.
-version: 0.0.1
-homepage:
+version: 0.0.2
+homepage: https://github.com/NikitaMasev/flutter_ticket_material
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
