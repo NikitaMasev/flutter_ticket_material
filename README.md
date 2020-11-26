@@ -7,7 +7,13 @@ A ticket view widget.
 Plugin was tested on following platforms:
 
 * Android;
-* IOS.
+* IOS;
+* Windows 10 64 bit;
+* Linux (Ubuntu 20.04.1 LTS).
+
+The support of MacOS is not guaranteed, but you can try to build it.
+
+Also on web platform it's does not work.
 
 ## Usage
 

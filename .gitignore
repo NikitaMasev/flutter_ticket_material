@@ -2,7 +2,7 @@
 .dart_tool/
 .pub/
 build/
+.idea/
 packages
 *.packages
-.idea/
 .packages
