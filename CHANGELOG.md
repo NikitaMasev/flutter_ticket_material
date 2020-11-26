@@ -1,3 +1,9 @@
+## 0.2.0
+
+* Added animation on tap.
+* Updated README.md.
+* Updated example with rounded corners.
+
 ## 0.1.0
 
 * Added support Linux, Windows.

@@ -18,16 +18,35 @@ class _ExamplePageState extends State<ExamplePage> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: TicketMaterial(
-            height: 150,
-            colorBackground: Colors.blue,
-            leftChild: _buildLeft(),
-            rightChild: _buildRight(),
+          child: Column(
+            children: [
+              TicketMaterial(
+                height: 150,
+                colorBackground: Colors.blue,
+                leftChild: _buildLeft(),
+                rightChild: _buildRight(),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: TicketMaterial(
+                  height: 150,
+                  colorBackground: Colors.blue,
+                  radiusBorder: 12,
+                  leftChild: _buildLeft(),
+                  rightChild: _buildRight(),
+                  tapHandler: () {
+                    print('ON TAP');
+                  },
+                ),
+              )
+            ],
           ),
         ),
       ),
     );
   }
+
+
 
   Widget _buildLeft() {
     return Container(

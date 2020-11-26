@@ -1,6 +1,6 @@
 name: ticket_material
 description: A ticket view widget.
-version: 0.1.0
+version: 0.2.0
 homepage: https://github.com/NikitaMasev/flutter_ticket_material
 
 environment:

@@ -79,4 +79,7 @@ class _ExamplePageState extends State<ExamplePage> {
 
 Result: ![demo](https://user-images.githubusercontent.com/22840281/100226439-d1385e00-2f30-11eb-90c1-38886f746edd.png)
 
+With tap animation:
+![demo_tap](https://user-images.githubusercontent.com/22840281/100353338-6ace4100-2fff-11eb-85ee-f1077e3b50b2.gif)
+
 Full example with *ticket_material* you can check by this [link](https://github.com/NikitaMasev/flutter_ticket_material/tree/main/example).
