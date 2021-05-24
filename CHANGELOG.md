@@ -1,3 +1,7 @@
+## 0.3.0
+
+* Support null safety.
+
 ## 0.2.0
 
 * Added animation on tap.

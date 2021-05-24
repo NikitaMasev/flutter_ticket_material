@@ -15,7 +15,7 @@ class TicketMaterial extends StatefulWidget {
   final double height;
   final Widget leftChild;
   final Widget rightChild;
-  final Function() tapHandler;
+  final Function()? tapHandler;
   final bool useAnimationScaleOnTap;
   final double lowerBoundAnimation;
 
@@ -25,10 +25,10 @@ class TicketMaterial extends StatefulWidget {
       this.flexRightSize = 20,
       this.radiusCircle = 4,
       this.marginBetweenCircles = 3,
-      @required this.height,
-      @required this.leftChild,
-      @required this.rightChild,
-      @required this.colorBackground,
+      required this.height,
+      required this.leftChild,
+      required this.rightChild,
+      required this.colorBackground,
       this.colorShadow = Colors.grey,
       this.shadowSize = 1.5,
       this.radiusBorder = 0,
@@ -42,7 +42,7 @@ class TicketMaterial extends StatefulWidget {
 
 class _TicketMaterialState extends State<TicketMaterial>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   var _height = double.infinity;
   var _width = double.infinity;
@@ -66,7 +66,7 @@ class _TicketMaterialState extends State<TicketMaterial>
     }
 
     if (widget.tapHandler != null) {
-      widget.tapHandler();
+      widget.tapHandler!();
     }
   }
 

@@ -7,14 +7,14 @@ class MaskTicketPainter extends CustomPainter {
   final Color colorBg;
   final Color colorShadow;
   final double shadowSize;
-  double _radiusArc;
+  late double _radiusArc;
 
   MaskTicketPainter({
-    @required this.radiusCircle,
-    @required this.marginBetweenCircles,
-    @required this.colorBg,
-    @required this.colorShadow,
-    @required this.shadowSize,
+    required this.radiusCircle,
+    required this.marginBetweenCircles,
+    required this.colorBg,
+    required this.colorShadow,
+    required this.shadowSize,
   });
 
   @override
@@ -28,12 +28,12 @@ class MaskTicketPainter extends CustomPainter {
 
     final pathMask = Path()
       ..addArc(Rect.fromLTWH(0, -_radiusArc, _radiusArc * 2, _radiusArc * 2), 0,
-          degToRad(180))
+          degToRad(180).toDouble())
       ..addArc(
           Rect.fromLTWH(
               0, size.height - _radiusArc, _radiusArc * 2, _radiusArc * 2),
-          degToRad(-180),
-          degToRad(180))
+          degToRad(-180).toDouble(),
+          degToRad(180).toDouble())
       ..addPath(
           _getCirclesPath(
               radiusCircle, _radiusArc, marginBetweenCircles, 0, size.height),
