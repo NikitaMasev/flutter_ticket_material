@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+///Class represents mask with circles(holes) and and two cutouts (as hemispheres).
+///[radiusCircle] - radius of circles(holes).
+///[marginBetweenCircles] - margin between circles(holes).
+///[colorBg] - background color of ticket.
+///[colorShadow] - shadow color of ticket.
+///[shadowSize] - size or offset of shadow ticket.
+///[_radiusArc] - radius of two cutouts (as hemispheres).
 class MaskTicketPainter extends CustomPainter {
   final double radiusCircle;
   final double marginBetweenCircles;
@@ -58,7 +65,12 @@ class MaskTicketPainter extends CustomPainter {
     );
   }
 
-  double _getOptimizedRadiusCircle(double startTopY, endBottomY, double radiusCircle) {
+  ///Calculate optimized radius of circles, based on the set radius [radiusCircle].
+  double _getOptimizedRadiusCircle(
+    double startTopY,
+    endBottomY,
+    double radiusCircle,
+  ) {
     var indexCircle = 0;
     final diameterCircle = radiusCircle * 2;
 
@@ -78,13 +90,17 @@ class MaskTicketPainter extends CustomPainter {
     return radiusCircle + (correctionBalance / 2);
   }
 
+  ///A baked path with all the holes that fit the current height of the item.
   Path _getCirclesPath(double radiusCircle, double radiusArc,
       double marginBetweenCircles, double startX, double height) {
     final marginByY = radiusCircle + radiusArc + marginBetweenCircles;
     final limitBottomY = height - marginByY;
     var currentOvalPosY = radiusCircle + marginByY;
-    final optimizedRadiusCircle =
-        _getOptimizedRadiusCircle(currentOvalPosY, limitBottomY, radiusCircle);
+    final optimizedRadiusCircle = _getOptimizedRadiusCircle(
+      currentOvalPosY,
+      limitBottomY,
+      radiusCircle,
+    );
     var path = Path();
 
     // correction start point by optimized radius

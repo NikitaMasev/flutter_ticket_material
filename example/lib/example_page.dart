@@ -46,8 +46,6 @@ class _ExamplePageState extends State<ExamplePage> {
     );
   }
 
-
-
   Widget _buildLeft() {
     return Container(
       child: Center(

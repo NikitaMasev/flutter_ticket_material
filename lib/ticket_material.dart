@@ -2,6 +2,8 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:ticket_material/mask_ticket_painter.dart';
 
+///Main class of plugin, that combine [MaskTicketPainter] as mask between
+///left an right part of ticket.
 class TicketMaterial extends StatefulWidget {
   final int flexLefSize;
   final int flexMaskSize;
@@ -19,22 +21,23 @@ class TicketMaterial extends StatefulWidget {
   final bool useAnimationScaleOnTap;
   final double lowerBoundAnimation;
 
-  const TicketMaterial(
-      {this.flexLefSize = 70,
-      this.flexMaskSize = 5,
-      this.flexRightSize = 20,
-      this.radiusCircle = 4,
-      this.marginBetweenCircles = 3,
-      required this.height,
-      required this.leftChild,
-      required this.rightChild,
-      required this.colorBackground,
-      this.colorShadow = Colors.grey,
-      this.shadowSize = 1.5,
-      this.radiusBorder = 0,
-      this.tapHandler,
-      this.useAnimationScaleOnTap = true,
-      this.lowerBoundAnimation = 0.95});
+  const TicketMaterial({
+    this.flexLefSize = 70,
+    this.flexMaskSize = 5,
+    this.flexRightSize = 20,
+    this.radiusCircle = 4,
+    this.marginBetweenCircles = 3,
+    required this.height,
+    required this.leftChild,
+    required this.rightChild,
+    required this.colorBackground,
+    this.colorShadow = Colors.grey,
+    this.shadowSize = 1.5,
+    this.radiusBorder = 0,
+    this.tapHandler,
+    this.useAnimationScaleOnTap = true,
+    this.lowerBoundAnimation = 0.95,
+  });
 
   @override
   _TicketMaterialState createState() => _TicketMaterialState(height);
@@ -44,22 +47,24 @@ class _TicketMaterialState extends State<TicketMaterial>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
-  var _height = double.infinity;
-  var _width = double.infinity;
+  final double _height;
+  final _width = double.infinity;
 
   _TicketMaterialState(this._height);
 
   @override
   void initState() {
     _controller = AnimationController(
-        duration: const Duration(milliseconds: 200),
-        lowerBound: widget.lowerBoundAnimation,
-        upperBound: 1,
-        vsync: this);
+      duration: const Duration(milliseconds: 200),
+      lowerBound: widget.lowerBoundAnimation,
+      upperBound: 1,
+      vsync: this,
+    );
     _controller.forward();
     super.initState();
   }
 
+  ///Launch revers animation of ticket(setting scale to default size).
   void _tapDown(TapDownDetails details) {
     if (widget.useAnimationScaleOnTap) {
       _controller.reverse();
@@ -70,6 +75,8 @@ class _TicketMaterialState extends State<TicketMaterial>
     }
   }
 
+  ///This trigger immediately before onTap event.
+  ///Launch animation of changing scale ticket(reducing size of ticket).
   void _tapUp(TapUpDetails details) {
     if (widget.useAnimationScaleOnTap) {
       _controller.forward();
